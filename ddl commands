@@ -1,0 +1,146 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| dbms_c             |
+| department         |
+| employe            |
+| faculty            |
+| instructor         |
+| likhitha           |
+| likitha            |
+| likki              |
+| mysql              |
+| performance_schema |
+| student            |
+| subject            |
+| test               |
++--------------------+
+15 rows in set (0.00 sec)
+
+mysql> use likhitha;
+Database changed
+mysql> create table stu
+    -> (
+    -> stuid int(100),
+    -> name varchar(100),
+    -> place varchar(100),
+    -> dept varchar(100),
+    -> dob int(100)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc stu;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| stuid | int(100)     | YES  |     | NULL    |       |
+| name  | varchar(100) | YES  |     | NULL    |       |
+| place | varchar(100) | YES  |     | NULL    |       |
+| dept  | varchar(100) | YES  |     | NULL    |       |
+| dob   | int(100)     | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> create database teacher;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use teacher;
+Database changed
+mysql> create table tea
+    -> (
+    -> name varchar(100),
+    -> mobile_no int(10),
+    -> gender varchar(100),
+    -> dob int(100)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc tea;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| name      | varchar(100) | YES  |     | NULL    |       |
+| mobile_no | int(10)      | YES  |     | NULL    |       |
+| gender    | varchar(100) | YES  |     | NULL    |       |
+| dob       | int(100)     | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create database branch;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use branch;
+Database changed
+mysql> create table btch
+    -> (
+    -> num int(10),
+    -> btch_name varchar(100),
+    -> btch_head varchar(100),
+    -> btch_headmble int(10)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc btch;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| num           | int(10)      | YES  |     | NULL    |       |
+| btch_name     | varchar(100) | YES  |     | NULL    |       |
+| btch_head     | varchar(100) | YES  |     | NULL    |       |
+| btch_headmble | int(10)      | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create database courses;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use courses;
+Database changed
+mysql> create table crse
+    -> (
+    -> crse_no int(10),
+    -> crse_desc  varchar(100),
+    -> crse_type char(1),
+    -> sem_no  char(1),
+    -> hall_no  varchar(10),
+    -> fal_no varchar(10)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc crse;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| crse_no   | int(10)      | YES  |     | NULL    |       |
+| crse_desc | varchar(100) | YES  |     | NULL    |       |
+| crse_type | char(1)      | YES  |     | NULL    |       |
+| sem_no    | char(1)      | YES  |     | NULL    |       |
+| hall_no   | varchar(10)  | YES  |     | NULL    |       |
+| fal_no    | varchar(10)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> alter table tea add dept varchar(4);
+ERROR 1146 (42S02): Table 'courses.tea' doesn't exist
+mysql> use teacher;
+Database changed
+mysql> alter table tea add dept varchar(4);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc teacher;
+ERROR 1146 (42S02): Table 'teacher.teacher' doesn't exist
+mysql> desc tea;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| name      | varchar(100) | YES  |     | NULL    |       |
+| mobile_no | int(10)      | YES  |     | NULL    |       |
+| gender    | varchar(100) | YES  |     | NULL    |       |
+| dob       | int(100)     | YES  |     | NULL    |       |
+| dept      | varchar(4)   | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
